@@ -1,0 +1,246 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+img {
+	vertical-align: top;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: "微软雅黑";
+	background-color: #fff;
+	color: #333;
+}
+li {
+	list-style: none;
+}
+/*赵海洋样式表*/
+.zhengti {
+	width: 100%;
+	left: 0rem;
+	top: 0rem;
+	right: 0rem;
+	bottom: 0rem;
+	position: absolute;
+}
+.neirongtext,.guifan{
+	display: none;
+}
+.qianruBody {
+	width: 6.86rem;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+}
+.title {
+	color: #66758F;
+	font-size: 0.28rem;
+	line-height: 0.40rem
+}
+.navlist{
+	width:7.5rem;
+	height: 3.0rem;
+	background-color: #fff;
+	margin-top: 0.8rem;
+}
+.navlist li{
+	width:100%;
+	height: 1.0rem;
+	float: left;
+	box-sizing: border-box;
+	border: 0.02rem #f5f5f5 solid;
+}
+
+.xieyilist{
+	width:7.5rem;
+	height: auto;
+	position: fixed;
+	top:0px;
+	background-color: #fff;
+	z-index: 5;
+}
+.xieyibiaoti{
+	width:3.2rem;
+	height: 0.4rem;
+	margin: 0 auto;
+	margin-top: 0.3rem;
+	font-size: 0.28rem;
+	line-height: 0.4rem;
+	color: #333;
+}
+#xuanzelist{
+	top:1.0rem;
+	z-index: 5;
+	display: none;
+}
+.xieyilist li{
+	width:100%;
+	height: 1.0rem;
+	float: left;
+	text-align: center;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: 0.02rem #fbfbfb solid;
+	line-height: 1.0rem;
+	font-size: 0.28rem;
+	color: #333;
+}
+.xiajiantou{
+	width:0.36rem;
+	height: 0.36rem;
+	position: absolute;
+	margin-top: -0.38rem;
+	margin-left: 1.7rem;
+}
+#container{
+	width: 7.5rem;
+	height: 4rem;
+}
+#container2{
+	width: 7.5rem;
+	height: 6rem;
+}
+.logo-beta {
+	width: 1.35rem;
+	height: 1.35rem;
+	background-image: url(../images/logo-beta.png);
+	background-size: 100%;
+	margin: 0 auto;
+	margin-top: 0.6rem;
+}
+.banbenhao {
+	text-align: center;
+	font-size: 0.28rem;
+	color: #858585;
+	margin-top: 0.2rem;
+}
+.guanyuwomenText {
+	font-size: 0.28rem;
+	color: #858585;
+	margin-top: 0.6rem;
+	line-height: 0.44rem;
+}
+.changjianwenti_xuanxiang{
+	height: auto;
+	padding:0.3rem 0 0.8rem 0;
+}
+.chanjianwenti_biaoti{
+	padding-bottom: 0.3rem;
+	font-size: 0.28rem;
+	line-height: 0.4rem;
+	color: #66758F;	
+}
+.chanjianwenti_biaoti2{
+	padding-bottom: 0.3rem;
+	font-size: 0.28rem;
+	line-height: 0.4rem;
+	color: #89694B;	
+}
+
+.chanjianwenti_wenti{
+	height: auto;
+}
+
+.chanjianwenti_wenti li{
+	float: left;
+}
+.chanjianwenti_wenti .icon{
+	width: 0.28rem;
+	height: 0.28rem;
+	margin-right: 0.2rem;
+	margin-top: 0.03rem;
+	background-image: url(../images/wentiicon.png);
+	background-size: 100%;
+}
+.chanjianwenti_wenti .timu{
+	width: 6.28rem;
+	height:auto;
+	font-size: 0.24rem;
+	font-weight: bold;
+	line-height: 0.4rem;
+	color:#333;
+	vertical-align: top;
+}
+
+.chanjianwenti_huida{
+	height: auto;
+}
+
+.chanjianwenti_huida li{
+	float: left;
+}
+.chanjianwenti_huida .icon{
+	width: 0.28rem;
+	height: 0.28rem;
+	margin-right: 0.2rem;
+	margin-top: 0.03rem;
+	background-image: url(../images/huidaicon.png);
+	background-size: 100%;
+}
+.chanjianwenti_huida .daan{
+	width: 6.28rem;
+	height:auto;
+	padding-bottom: 0.4rem;
+	font-size: 0.24rem;
+	color:#333;
+	line-height: 0.4rem;
+    
+}
+
+.icon{
+	width:0.4rem;
+	height: 0.4rem;
+	float: left;
+	background-image: url(../images/icon.png);
+	background-size: 2.0rem 0.4rem;
+	margin-top: 0.3rem;
+	margin-right: 0.1rem;
+}
+
+.jiantou{
+	width:0.2rem;
+	height: 0.4rem;
+	float: right;
+	background-image: url(../images/icon.png);
+	background-size: 2.0rem 0.4rem;
+	margin-top: 0.3rem;
+}
+
+.listText_xqf{
+	width:5.6rem;
+	height: 0.4rem;
+	float: left;
+	margin-top: 0.3rem;
+	font-size: 0.28rem;
+	color:#89694B;
+	line-height: 0.4rem;
+}
+.listText_zmtr{
+	width:5.6rem;
+	height: 0.4rem;
+	float: left;
+	margin-top: 0.3rem;
+	font-size: 0.28rem;
+	color:#66758F;
+	line-height: 0.4rem;
+}
+
+.shouyeico{
+	background-position: 0rem 0rem;
+}
+.pingjiaico{
+	background-position: -0.5rem 0rem;
+}
+.xieyiico{
+	background-position: -0.98rem 0rem;
+}
+.jiantou_xqf{
+	background-position: -1.48rem 0rem;
+}
+.jiantou_zmtr{
+	background-position: -1.77rem 0rem;
+}

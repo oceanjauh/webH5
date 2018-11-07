@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作品范例详情/代表作详情/推荐稿件详情</title>
+    <link rel="stylesheet" href="css/1.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+<div class="zys zys-artdel">
+    <h1 class="con_title"></h1>
+    <div class="tx">
+        <header>
+            <img class="headico" src="" alt="">
+            <div>
+                <p class="tit"></p>
+                <time id="TimeText"></time>
+            </div>
+        </header>
+        <span class="follow">关注</span>
+    </div>
+    <!--代表作有文章属性，作品范例、推荐稿件详情-自媒体人稿件、推荐稿件详情-企业稿件无-->
+    <p class="attribute">文章属性:<span class="textProperty"></span></p>
+    <!--end-->
+    <article class="content">
+        
+    </article>
+</div>
+<script>
+    var rem = new Rem(750,1218);
+    rem.setRem();
+    //下方 if 判断当前页是代表作/推荐稿件详情-自媒体人稿件
+    /*if(){
+        //如果此页面是代表作页面
+    }else{
+        //不是代表作页面
+        $(".attribute").hide();
+        if(){
+            //如果是推荐稿件详情-自媒体人稿件，显示关注按钮
+        }
+    }*/
+    $(".tx>span").click(function(){
+		//调用APP方法followButtonclicked();成功后再执行下面的代码;
+        $(this).removeClass("follow").addClass("alf").html("已关注");
+        $(this).css("color","#999");
+    });
+
+    var isHidden = true;//定义此项参数来判断当前页是代表作/作品范例（自媒体人），还是推荐稿件（需求方），为false是代表作详情，隐藏关注按钮，显示标签。为true，则为推荐稿件，
+    var isImedia = 0;//判断是推荐稿件详情是企业稿件还是自媒体人稿件，0为企业稿件,不显示关注按钮，1为自媒体人稿件，显示关注按钮。
+	function buildHTML(con_title,headico,tit,TimeText,textProperty,content,isHidden,isImedia){
+		$(".con_title").html(con_title);
+		$(".headico").prop("src",headico);
+		$(".tit").html(tit);
+		$("#TimeText").html(TimeText);
+		$(".textProperty").html(textProperty);
+		$(".content").html(content);
+		if(isHidden == false){
+		    $(".follow").hide();
+        }else{
+		    console.log("true");
+		    if(isImedia == "0"){
+                $(".follow").hide();
+                $(".attribute").hide();
+            }else{
+                $(".attribute").hide();
+            }
+        }
+	}
+</script>
+</body>

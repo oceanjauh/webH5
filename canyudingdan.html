@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html,charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name = "format-detection" content = "telephone=no">
+  <title>参与的订单</title>
+  <link rel="stylesheet" type="text/css" href="css/h5qianru.css"/>
+  <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="js/AutoFull.js"></script>
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+</head>
+   <body>
+	   <div class="zhengti">
+		   <div class="qianruBody" style="margin-top: 0.3rem">
+		   		<div class="title">近30天参与订单分析</div>
+		   </div>
+		   <div id="container"></div>
+		   <div class="qianruBody" style="margin-top: 0.3rem">
+		   		<div class="title" style="position: absolute; top:0.4rem; z-index: 99">近30天的接单量</div>
+		   </div>
+		   <div id="container2" style="margin-top: 0.4rem"></div>   
+	   </div>  
+   </body>
+    <script type="text/javascript">
+		
+		/***执行饼状图方法要传入订单每个类别相对应的数值***/
+		function BingzhuangTu(canyuValue,chenggongValue,jinxingValue,wanchengValue,quxiaoValue){	
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			var app = {};
+			option = null;
+			app.title = '环形图';
+
+			option = {
+				tooltip: {
+					trigger: 'item',
+					formatter: "{a} <br/>{b}: {c} ({d}%)"
+				},
+				color:['#FFCC10','#A4DB54', '#6274CD', '#C575BD', '#FF5E3C'],
+				legend: {
+					orient: 'vertical',
+					x: '56%',
+					y:"middle",
+					itemHeight: 14,
+					itemWidth: 14,
+					itemGap:20,
+					textStyle: {
+									fontSize: '14',
+									fontWeight: 'normal'
+								},
+					data:[
+							{value:canyuValue, name:'参与竞标：'+canyuValue+"单"},
+							{value:chenggongValue, name:'成功竞标：'+chenggongValue+"单"},
+							{value:jinxingValue, name:'进行中：'+jinxingValue+"单"},
+							{value:wanchengValue, name:'已完成：'+wanchengValue+"单"},
+							{value:quxiaoValue, name:'已取消：'+quxiaoValue+"单"}
+						]
+				},
+				series: [
+					{
+						name:'访问来源',
+						type:'pie',
+						radius: ['44%', '88%'],
+						center:["28%","50%"],
+						avoidLabelOverlap: false,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside',
+								textStyle: {
+									fontSize: '12',
+									fontWeight: 'normal'
+								},
+								formatter: "{d}"+"%",
+							},
+							emphasis: {
+								show: true,
+								textStyle: {
+									fontSize: '16',
+									fontWeight: 'normal'
+								}
+							}
+						},
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						data:[
+							{value:canyuValue, name:'参与竞标：'+canyuValue+"单"},
+							{value:chenggongValue, name:'成功竞标：'+chenggongValue+"单"},
+							{value:jinxingValue, name:'进行中：'+jinxingValue+"单"},
+							{value:wanchengValue, name:'已完成：'+wanchengValue+"单"},
+							{value:quxiaoValue, name:'已取消：'+quxiaoValue+"单"}
+						]
+					}
+				]
+			};
+			;
+			if (option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
+		}
+		
+		
+		/**模拟的数组，只是为了测试用，实际中，需要IOS和Android前端来传入**/
+		var riqiAarry = [];
+		var NumAarry = [];
+		
+		for(var i=0; i<31; i++){
+			riqiAarry[i]=i;
+			NumAarry[i]=i*2;
+		}/**模拟数组结束**/
+		
+		/***执行线型图方法要传入日期与对应的数量的数组***/
+		function XianxingTu(riqiAarry,NumAarry){
+			var dom2 = document.getElementById("container2");
+			var myChart2 = echarts.init(dom2);
+			var app2 = {};
+			option2 = null;
+			option2 = {
+				tooltip : {
+					position: function (point, params, dom, rect, size) {
+					  // 固定在顶部
+					  return [point[0], '10%'];
+				  },
+				    formatter: '{c0}',
+				    backgroundColor:"#6D829B",
+				    showContent:true,
+					axisPointer: {
+						type: 'line',
+						axis:"x",
+					}
+				},
+				xAxis: {
+					 type: 'category',
+					 axisPointer:{
+						show:true,
+						label: {
+							backgroundColor: '#6D829B',
+							show:true,
+						},
+					},
+					boundaryGap: false,
+					data: riqiAarry,
+				},
+				yAxis: {
+					type: 'value',
+				},
+
+				series: [{
+					data: NumAarry,
+					type: 'line',
+					smooth: true,  
+					lineStyle:{
+						color: '#6D829B'
+					},
+					itemStyle:{
+						color:"#000"
+					},
+					areaStyle: { 
+					   color: {
+						type: 'linear',
+						x: 1,
+						x2: 1,
+						y: 0,
+						y2: 1,
+						colorStops: [{
+							offset: 0, color: '#9AB0C9' // 0% 处的颜色
+						}, {
+							offset: 1, color: '#FFFFFF' // 100% 处的颜色
+						}],
+						globalCoord: true // 缺省为 false
+					},}
+				}]
+			};
+			;
+			if (option2 && typeof option2 === "object") {
+				myChart2.setOption(option2, true);
+			}
+			
+		}	
+		
+		$(function(){
+			BingzhuangTu(200,100,400,500,600);//这里的数值只是测试用，实际中，需要IOS和Android前端来传入
+			XianxingTu(riqiAarry,NumAarry);
+		})
+       </script>
+</html>

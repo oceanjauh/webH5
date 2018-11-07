@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/1.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<style>
+    .dgdp i{
+        float: none;
+        margin-top: auto;
+        margin-left:.1rem;
+    }
+    .dagang-xq{
+        width:6.86rem;
+        margin: 0 auto;
+        font-size:.28rem;
+        text-align: justify;
+    }
+    .dagang-xq h1{
+        font-size:.32rem;
+        color:rgba(51,51,51,1);
+        font-weight: bold;
+        margin-bottom: .48rem;
+        padding-top: .24rem;
+        overflow: hidden;
+    }
+    .dagang-xq img{
+        width: 6rem;
+        display: block;
+        margin: .32rem auto;
+    }
+    .dagang-xq p{
+        font-size:.28rem;
+        color:rgba(51,51,51,1);
+        line-height:.4rem;
+    }
+    .hdg {
+        width: 6.9rem;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: .32rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin: .5rem auto;
+        background: #9994FF;
+        border-radius: 1rem;
+        display: none;
+    }
+    .tjjyi{
+        margin-bottom: .5rem;
+    }
+</style>
+<body>
+<!--标准通稿界面-->
+<div class="zys zys-bztgls">
+    <!--<p>内容类型：<span>新闻稿</span></p>-->
+    <div class="dagang-box">
+        <div class="dagang-xq">
+            <!--此处为作品详情-->
+            <h1 class="con_title"></h1>
+            <!--微信公众号详情显示此时间作者——start-->
+            <p class="tme"><i id="TimeText"></i><span id='writer'></span></p>
+            <!------------------------------------end-->
+            <div class="content">
+                
+            </div>
+        </div>
+        <div class="dagang-dp">
+            <div class="dgdp">修改建议<i class="i-right"></i></div>
+            <div class="dp_detail">
+                <div class="buchong" style="display:block;">
+                    <p>图文内容的修改建议：</p>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/standard_works.js"></script>
+<script>
+    var rem = new Rem(750,1218);
+    rem.setRem();
+
+    var isPublic = false;//判断是标准通稿类型还是微信公众号类型，false为标准通稿
+	function buildHTML(con_title,TimeText,Writer,content,suggest,isPublic){
+		$(".con_title").html(con_title);
+		$("#TimeText").html(TimeText);
+		$("#writer").html(Writer);
+		$(".content").html(content);
+		$("textarea").val(suggest);
+        if(isPublic == true){
+            $(".tme").show();
+        }
+	}
+</script>
+
+</body>
